@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snowflake-query-credit-guardrail"
+version = "1.0.0"
+description = "Offline Snowflake query credit guardrail for warehouse burn, cache misses, owner gaps, and remediation sequencing."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-only"
+authors = [{ name = "Kinetic Gain" }]
+keywords = [
+  "snowflake",
+  "finops",
+  "query-history",
+  "cost-governance",
+  "data-engineering",
+  "kinetic-gain"
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Database",
+  "Topic :: Office/Business :: Financial"
+]
+
+[project.scripts]
+snowflake-query-credit-guardrail = "snowflake_query_credit_guardrail.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

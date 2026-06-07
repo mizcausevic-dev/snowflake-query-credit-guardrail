@@ -1,0 +1,103 @@
+{
+  "queries": [
+    {
+      "query_hash": "qh_margin_rollup_001",
+      "warehouse": "FINANCE_WH",
+      "warehouse_size": "XLARGE",
+      "owner": "finops",
+      "business_unit": "Finance",
+      "credits": 62.4,
+      "bytes_scanned": 812000000000,
+      "execution_seconds": 842,
+      "rows_produced": 6400,
+      "cache_hit": false,
+      "tag_status": "untagged",
+      "classification": "regulated"
+    },
+    {
+      "query_hash": "qh_margin_rollup_001",
+      "warehouse": "FINANCE_WH",
+      "warehouse_size": "XLARGE",
+      "owner": "finops",
+      "business_unit": "Finance",
+      "credits": 58.9,
+      "bytes_scanned": 780000000000,
+      "execution_seconds": 790,
+      "rows_produced": 6100,
+      "cache_hit": false,
+      "tag_status": "untagged",
+      "classification": "regulated"
+    },
+    {
+      "query_hash": "qh_customer_360_217",
+      "warehouse": "REVOPS_WH",
+      "warehouse_size": "LARGE",
+      "owner": "revops",
+      "business_unit": "Revenue",
+      "credits": 24.2,
+      "bytes_scanned": 166000000000,
+      "execution_seconds": 418,
+      "rows_produced": 18000,
+      "cache_hit": false,
+      "tag_status": "tagged",
+      "classification": "internal"
+    },
+    {
+      "query_hash": "qh_daily_model_102",
+      "warehouse": "ML_WH",
+      "warehouse_size": "2X-LARGE",
+      "owner": "data-science",
+      "business_unit": "AI Platform",
+      "credits": 41.5,
+      "bytes_scanned": 245000000000,
+      "execution_seconds": 610,
+      "rows_produced": 8200,
+      "cache_hit": true,
+      "tag_status": "tagged",
+      "classification": "internal"
+    },
+    {
+      "query_hash": "qh_export_health_043",
+      "warehouse": "PIPELINE_WH",
+      "warehouse_size": "MEDIUM",
+      "owner": "data-platform",
+      "business_unit": "Data Engineering",
+      "credits": 9.8,
+      "bytes_scanned": 43000000000,
+      "execution_seconds": 122,
+      "rows_produced": 520000,
+      "cache_hit": false,
+      "tag_status": "tagged",
+      "classification": "internal"
+    },
+    {
+      "query_hash": "qh_adhoc_889",
+      "warehouse": "ANALYST_WH",
+      "warehouse_size": "LARGE",
+      "owner": "",
+      "business_unit": "Unknown",
+      "credits": 16.7,
+      "bytes_scanned": 91000000000,
+      "execution_seconds": 275,
+      "rows_produced": 2100,
+      "cache_hit": false,
+      "tag_status": "untagged",
+      "classification": "internal"
+    },
+    {
+      "query_hash": "qh_board_packet_313",
+      "warehouse": "BOARD_WH",
+      "warehouse_size": "SMALL",
+      "owner": "executive-ops",
+      "business_unit": "Executive",
+      "credits": 3.2,
+      "bytes_scanned": 9000000000,
+      "execution_seconds": 48,
+      "rows_produced": 400,
+      "cache_hit": true,
+      "tag_status": "tagged",
+      "classification": "restricted"
+    }
+  ]
+}
+
