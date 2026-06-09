@@ -40,6 +40,37 @@ def render(summary: dict) -> str:
         f"<li><span>{html.escape(row['name'])}</span><strong>{row['credits']} credits</strong><em>risk {row['risk']}</em></li>"
         for row in summary["owner_pressure"][:5]
     )
+    depth_cards = [
+        (
+            "What this product does",
+            "Turns Snowflake query-history exports into a finance-readable guardrail: which queries are burning credits, which warehouses are over-provisioned, which owners need tagging hygiene, and what should be remediated before the next spend review.",
+        ),
+        (
+            "SaaS go-to-market analyst lens",
+            "Data-platform spend becomes a GTM problem when reporting teams cannot explain margin leakage, customer-facing analytics slow down, or sales and success teams lose trust in warehouse-backed dashboards. This surface translates technical waste into operating risk.",
+        ),
+        (
+            "SaaS value architect lens",
+            "The value is not just lower Snowflake spend. It is a repeatable cost-governance motion: recover avoidable credits, protect board reporting, assign owners, and convert raw query history into a credible savings narrative.",
+        ),
+        (
+            "Technical proof",
+            "The repo ships a credential-free CLI, JSON and markdown output, SQL extraction template, deterministic fixture analysis, unit tests, static site generation, and a CI safety scan for local usernames and deploy secrets.",
+        ),
+        (
+            "What these repos have in common",
+            "Like the broader Kinetic Gain estate, this repo converts hidden operational drag into named lanes, evidence, owner accountability, and a board-readable next action. Here the drag is Snowflake credit burn and query hygiene.",
+        ),
+    ]
+    depth = "\n".join(
+        f"""
+        <article class="depth-card">
+          <span class="eyebrow">{html.escape(title)}</span>
+          <p>{html.escape(copy)}</p>
+        </article>
+        """
+        for title, copy in depth_cards
+    )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -113,7 +144,10 @@ def render(summary: dict) -> str:
     }}
     .metric strong {{ display:block; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -.05em; }}
     .grid {{ display: grid; grid-template-columns: 1.15fr .85fr; gap: 18px; margin-top: 18px; }}
+    .depth-grid {{ display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }}
     h2 {{ font-size: clamp(2.2rem, 5vw, 4.6rem); line-height: .95; letter-spacing: -.06em; margin: 0 0 18px; }}
+    .depth-card {{ border: 1px solid rgba(255,255,255,.1); border-radius: 20px; background: rgba(255,255,255,.045); padding: 18px; }}
+    .depth-card p {{ margin: 12px 0 0; font-size: 1rem; line-height: 1.55; }}
     .finding {{ display: grid; gap: 12px; margin-bottom: 12px; border-left: 4px solid var(--mint); }}
     .finding h3 {{ margin: 8px 0 2px; font-family: "JetBrains Mono", ui-monospace, monospace; }}
     .finding strong {{ color: var(--warn); font-size: 1.2rem; }}
@@ -125,7 +159,7 @@ def render(summary: dict) -> str:
     a {{ color: var(--cyan); }}
     @media (max-width: 820px) {{
       main {{ width: min(100% - 24px, 1180px); padding-top: 18px; }}
-      .metrics, .grid {{ grid-template-columns: 1fr; }}
+      .metrics, .grid, .depth-grid {{ grid-template-columns: 1fr; }}
       h1 {{ font-size: clamp(3rem, 16vw, 5rem); }}
       li {{ grid-template-columns: 1fr; gap: 4px; }}
     }}
@@ -142,6 +176,9 @@ def render(summary: dict) -> str:
         <div class="metric"><span class="eyebrow">Credits</span><strong>{summary['total_credits']}</strong></div>
         <div class="metric"><span class="eyebrow">Avoidable</span><strong>{summary['avoidable_credits']}</strong></div>
         <div class="metric"><span class="eyebrow">High risk</span><strong>{summary['high_risk_queries']}</strong></div>
+      </div>
+      <div class="depth-grid">
+        {depth}
       </div>
     </section>
 
@@ -171,4 +208,3 @@ def render(summary: dict) -> str:
 
 if __name__ == "__main__":
     main()
-
